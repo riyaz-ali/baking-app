@@ -1,8 +1,7 @@
 package com.github.riyaz.bakingapp.screens.recipes;
 
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,8 +10,9 @@ import butterknife.ButterKnife;
 import com.github.riyaz.bakingapp.R;
 import com.github.riyaz.bakingapp.adapter.RecipeAdapter;
 import com.github.riyaz.bakingapp.model.Recipe;
+import dagger.android.support.DaggerAppCompatActivity;
 
-public class RecipeListActivity extends AppCompatActivity implements RecipeAdapter.OnClickListener {
+public class RecipeListActivity extends DaggerAppCompatActivity implements RecipeAdapter.OnClickListener {
   // Log TAG
   private final static String TAG = RecipeListActivity.class.getSimpleName();
 
