@@ -6,17 +6,20 @@ import dagger.Component;
 import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 /**
  * Main Dagger Object-graph
  *
  * @author Riyaz
  */
+@Singleton
 @Component(
     modules = {
         AndroidSupportInjectionModule.class,
         AppModule.class,
         NetModule.class,
+        ViewModelModule.class,
         ActivityBuilderModule.class
     }
 ) public interface AppComponent extends AndroidInjector<BakingApp> {

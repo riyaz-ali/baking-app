@@ -4,6 +4,7 @@ import android.content.Context;
 import com.github.riyaz.bakingapp.BakingApp;
 import dagger.Module;
 import dagger.Provides;
+import javax.inject.Singleton;
 
 /**
  * Dagger module to provide Android 'contextual' objects
@@ -11,7 +12,7 @@ import dagger.Provides;
  * @author Riyaz
  */
 @Module public class AppModule {
-  @Provides Context provideContext(BakingApp application){
+  @Singleton @Provides Context provideContext(BakingApp application){
     return application;
   }
 }

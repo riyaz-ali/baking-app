@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Named;
+import javax.inject.Singleton;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -20,11 +21,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
   // constant to use with @Named
   final static String BASE_URL = "base-url";
 
-  @Provides RecipeService provideRecipeService(Retrofit retrofit){
+  @Singleton @Provides RecipeService provideRecipeService(Retrofit retrofit){
     return retrofit.create(RecipeService.class);
   }
 
-  @Provides Retrofit provideRetrofit(@Named(BASE_URL) String baseUrl,
+  @Singleton @Provides Retrofit provideRetrofit(@Named(BASE_URL) String baseUrl,
       GsonConverterFactory factory, OkHttpClient client) {
     return new Retrofit.Builder()
         .baseUrl(baseUrl)
@@ -37,11 +38,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
     return GsonConverterFactory.create(gson);
   }
 
-  @Provides Gson provideGson(){
+  @Singleton @Provides Gson provideGson(){
     return new GsonBuilder().create();
   }
 
-  @Provides OkHttpClient provideOkHttpClient(){
+  @Singleton @Provides OkHttpClient provideOkHttpClient(){
     return new OkHttpClient.Builder().build();
   }
 }

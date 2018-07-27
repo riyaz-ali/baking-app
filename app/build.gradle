@@ -30,6 +30,9 @@ dependencies {
   implementation 'com.android.support:recyclerview-v7:27.1.1'
   implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 
+  // Android Architecture Components - ViewModel
+  implementation "android.arch.lifecycle:extensions:1.1.1"
+
   // ButterKnife
   implementation 'com.jakewharton:butterknife:8.8.1'
   annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
