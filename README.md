@@ -7,7 +7,7 @@ project.
 - [x] ~Get initial project up and running~
 
 - [ ] Create a barebones application
-  - Load and display recipes from the network
+  - ~Load and display recipes from the network~
   - Display ingredients
   - Diplay basic (text) steps (no videos) for the recipe
 

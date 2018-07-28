@@ -12,7 +12,7 @@ public final class Ingredient {
    * Quantity of the ingredient measured in {@code measure}
    */
   @SerializedName("quantity")
-    private int quantity;
+    private float quantity;
 
   /**
    * Unit of measurement for the ingredient
@@ -46,7 +46,7 @@ public final class Ingredient {
   //================================================================================//
   //================================ AUTO GENERATED ================================//
   //================================================================================//
-  public int getQuantity() { return quantity; }
+  public float getQuantity() { return quantity; }
   public Measure getMeasure() { return measure; }
   public String getName() { return name; }
 

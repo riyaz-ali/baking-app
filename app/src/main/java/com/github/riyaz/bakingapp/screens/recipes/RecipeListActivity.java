@@ -1,9 +1,11 @@
 package com.github.riyaz.bakingapp.screens.recipes;
 
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,6 +15,7 @@ import com.github.riyaz.bakingapp.R;
 import com.github.riyaz.bakingapp.adapter.RecipeAdapter;
 import com.github.riyaz.bakingapp.model.Recipe;
 import dagger.android.support.DaggerAppCompatActivity;
+import java.util.List;
 import javax.inject.Inject;
 
 public class RecipeListActivity extends DaggerAppCompatActivity implements RecipeAdapter.OnClickListener {
@@ -30,7 +33,7 @@ public class RecipeListActivity extends DaggerAppCompatActivity implements Recip
     ButterKnife.bind(this);
 
     // setup recipes adapter
-    RecipeAdapter adapter =
+    final RecipeAdapter adapter =
         new RecipeAdapter(this, this);
     recipes.setAdapter(adapter);
 
@@ -39,7 +42,14 @@ public class RecipeListActivity extends DaggerAppCompatActivity implements Recip
         new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
     recipes.setLayoutManager(layoutManager);
 
+    // get the viewmodel and start fetching recipes
     RecipeListViewModel vm = ViewModelProviders.of(this, vmFactory).get(RecipeListViewModel.class);
+    vm.recipes.observe(this, new Observer<List<Recipe>>() {
+      @Override public void onChanged(@Nullable List<Recipe> recipes) {
+        adapter.clear();
+        adapter.addAll(recipes);
+      }
+    });
   }
 
   @Override public void onRecipeClicked(@NonNull Recipe recipe) {

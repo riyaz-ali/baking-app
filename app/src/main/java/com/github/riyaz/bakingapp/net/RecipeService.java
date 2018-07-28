@@ -3,6 +3,7 @@ package com.github.riyaz.bakingapp.net;
 import com.github.riyaz.bakingapp.model.Recipe;
 import java.util.List;
 import retrofit2.Call;
+import retrofit2.http.GET;
 
 /**
  * REST service interface implemented by retrofit
@@ -15,5 +16,5 @@ public interface RecipeService {
    *
    * @return Call that resolves to List of Recipe objects
    */
-  Call<List<Recipe>> recipes();
+  @GET("android-baking-app-json") Call<List<Recipe>> recipes();
 }
