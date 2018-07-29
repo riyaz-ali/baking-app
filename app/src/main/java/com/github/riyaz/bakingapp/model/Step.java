@@ -1,5 +1,7 @@
 package com.github.riyaz.bakingapp.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -8,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
  * @author Riyaz
  */
 @SuppressWarnings("WeakerAccess")
-public final class Step {
+public final class Step implements Parcelable {
 
   /**
    * Id of the this step. This is also the order number for the steps
@@ -58,4 +60,37 @@ public final class Step {
         ", thumbnail='" + thumbnail + '\'' +
         '}';
   }
+
+  //================================================================================//
+  //================================== PARCELABLE ==================================//
+  //================================================================================//
+  private Step(Parcel in){
+    this.id = in.readInt();
+    this.shortDescription = in.readString();
+    this.description = in.readString();
+    this.video = in.readString();
+    this.thumbnail = in.readString();
+  }
+
+  @Override public int describeContents() {
+    return 0;
+  }
+
+  @Override public void writeToParcel(Parcel dest, int flags) {
+    dest.writeInt(id);
+    dest.writeString(shortDescription);
+    dest.writeString(description);
+    dest.writeString(video);
+    dest.writeString(thumbnail);
+  }
+
+  public static final Creator<Step> CREATOR = new Creator<Step>() {
+    @Override public Step createFromParcel(Parcel source) {
+      return new Step(source);
+    }
+
+    @Override public Step[] newArray(int size) {
+      return new Step[size];
+    }
+  };
 }

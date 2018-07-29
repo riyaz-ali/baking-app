@@ -8,7 +8,7 @@ project.
 
 - [ ] Create a barebones application
   - ~Load and display recipes from the network~
-  - Display ingredients
+  - ~Display ingredients~
   - Diplay basic (text) steps (no videos) for the recipe
 
 - [ ] Add `ExoPlayer` to view recipe videos

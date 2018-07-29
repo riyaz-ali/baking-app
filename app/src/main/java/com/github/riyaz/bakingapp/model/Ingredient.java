@@ -1,5 +1,7 @@
 package com.github.riyaz.bakingapp.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -7,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  *
  * @author Riyaz
  */
-public final class Ingredient {
+public final class Ingredient implements Parcelable {
   /**
    * Quantity of the ingredient measured in {@code measure}
    */
@@ -57,4 +59,35 @@ public final class Ingredient {
         ", name='" + name + '\'' +
         '}';
   }
+
+  //================================================================================//
+  //================================== PARCELABLE ==================================//
+  //================================================================================//
+
+  // ctor to create object from parcel
+  private Ingredient(Parcel in){
+    this.quantity = in.readFloat();
+    this.measure  = (Measure) in.readSerializable();
+    this.name     = in.readString();
+  }
+
+  @Override public int describeContents() {
+    return 0;
+  }
+
+  @Override public void writeToParcel(Parcel dest, int flags) {
+    dest.writeFloat(quantity);
+    dest.writeSerializable(measure);
+    dest.writeString(name);
+  }
+
+  public static final Creator<Ingredient> CREATOR = new Creator<Ingredient>() {
+    @Override public Ingredient createFromParcel(Parcel source) {
+      return new Ingredient(source);
+    }
+
+    @Override public Ingredient[] newArray(int size) {
+      return new Ingredient[size];
+    }
+  };
 }

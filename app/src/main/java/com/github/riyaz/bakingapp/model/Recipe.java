@@ -1,6 +1,9 @@
 package com.github.riyaz.bakingapp.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,7 +11,7 @@ import java.util.List;
  *
  * @author Riyaz
  */
-public final class Recipe {
+public final class Recipe implements Parcelable {
   /**
    * Id of the recipe
    */
@@ -65,4 +68,41 @@ public final class Recipe {
         ", steps=" + steps +
         '}';
   }
+
+  //================================================================================//
+  //================================== PARCELABLE ==================================//
+  //================================================================================//
+  private Recipe(Parcel in){
+    this.id = in.readInt();
+    this.name = in.readString();
+    this.servings = in.readInt();
+    this.image = in.readString();
+    this.ingredients = new ArrayList<>();
+    in.readTypedList(this.ingredients, Ingredient.CREATOR);
+    this.steps = new ArrayList<>();
+    in.readTypedList(this.steps, Step.CREATOR);
+  }
+
+  @Override public int describeContents() {
+    return 0;
+  }
+
+  @Override public void writeToParcel(Parcel dest, int flags) {
+    dest.writeInt(id);
+    dest.writeString(name);
+    dest.writeInt(servings);
+    dest.writeString(image);
+    dest.writeTypedList(ingredients);
+    dest.writeTypedList(steps);
+  }
+
+  public static final Creator<Recipe> CREATOR = new Creator<Recipe>() {
+    @Override public Recipe createFromParcel(Parcel source) {
+      return new Recipe(source);
+    }
+
+    @Override public Recipe[] newArray(int size) {
+      return new Recipe[size];
+    }
+  };
 }
