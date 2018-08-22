@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import com.github.riyaz.bakingapp.screens.ViewModelBakery;
 import com.github.riyaz.bakingapp.screens.recipes.RecipeListViewModel;
+import com.github.riyaz.bakingapp.screens.steps.StepsViewModel;
 import dagger.Binds;
 import dagger.MapKey;
 import dagger.Module;
@@ -34,4 +35,9 @@ import java.lang.annotation.Target;
   @Binds
   @IntoMap
   @ViewModelKey(RecipeListViewModel.class) abstract ViewModel recipeListViewModel(RecipeListViewModel viewModel);
+
+  // [target]: StepsViewModel
+  @Binds
+  @IntoMap
+  @ViewModelKey(StepsViewModel.class) abstract ViewModel stepsViewModel(StepsViewModel viewModel);
 }

@@ -20,6 +20,8 @@
     </activity>
     <activity android:name=".screens.ingredients.IngredientListActivity">
     </activity>
+    <activity android:name=".screens.steps.StepsActivity">
+    </activity>
   </application>
 
 </manifest>
