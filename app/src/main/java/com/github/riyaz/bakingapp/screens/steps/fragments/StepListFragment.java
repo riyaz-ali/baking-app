@@ -50,6 +50,6 @@ public class StepListFragment extends DaggerFragment implements StepsAdapter.OnC
   }
 
   @Override public void onClick(@NonNull Step step) {
-    vm.step(step);
+    vm.steps.setValue(step);
   }
 }

@@ -29,6 +29,7 @@ public final class StepsAdapter extends ArrayAdapter<Step, StepsAdapter.ViewHold
     public ViewHolder(View itemView) {
       super(itemView);
       ButterKnife.bind(this, itemView);
+      itemView.setOnClickListener(this);
     }
 
     void bind(@NonNull Step step){

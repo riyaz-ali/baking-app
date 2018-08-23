@@ -1,5 +1,6 @@
 package com.github.riyaz.bakingapp.screens.steps;
 
+import com.github.riyaz.bakingapp.screens.steps.fragments.StepDetailFragment;
 import com.github.riyaz.bakingapp.screens.steps.fragments.StepListFragment;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -13,4 +14,7 @@ import dagger.android.ContributesAndroidInjector;
 
   @ContributesAndroidInjector
   abstract StepListFragment bindStepListFragment();
+
+  @ContributesAndroidInjector
+  abstract StepDetailFragment bindStepDetailFragment();
 }
