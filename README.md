@@ -6,12 +6,12 @@ project.
 ## Project Breakdown
 - [x] ~Get initial project up and running~
 
-- [x] Create a barebones application
+- [x] ~Create a barebones application~
   - ~Load and display recipes from the network~
   - ~Display ingredients~
-  - ~Diplay basic (text) steps (no videos) for the recipe
+  - ~Diplay basic (text) steps (no videos) for the recipe~
 
-- [ ] Add `ExoPlayer` to view recipe videos
+- [x] ~Add `ExoPlayer` to view recipe videos~
 
 - [ ] Add Espresso UI testing
   - Adding Espresso tests now will help us detect regressions later when we update the UI

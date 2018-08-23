@@ -2,20 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:baselineAligned="false">
+    android:baselineAligned="false"
+    >
 
   <fragment
+      class="com.github.riyaz.bakingapp.screens.steps.fragments.StepListFragment"
       android:id="@+id/recipe.fragment.steps"
       android:layout_width="0dp"
       android:layout_height="match_parent"
       android:layout_weight="2"
-      class="com.github.riyaz.bakingapp.screens.steps.fragments.StepListFragment" />
+      />
 
-  <fragment
-      android:id="@+id/recipe.fragment.detail"
+  <FrameLayout
+      android:id="@+id/recipe.steps.container"
       android:layout_width="0dp"
       android:layout_height="match_parent"
       android:layout_weight="3"
-      class="com.github.riyaz.bakingapp.screens.steps.fragments.StepDetailFragment" />
+      />
 </LinearLayout>
