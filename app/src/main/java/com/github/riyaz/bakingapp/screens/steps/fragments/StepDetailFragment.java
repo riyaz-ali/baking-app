@@ -3,7 +3,6 @@ package com.github.riyaz.bakingapp.screens.steps.fragments;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +36,7 @@ public class StepDetailFragment extends DaggerFragment {
   @Override public void onResume() {
     super.onResume();
 
-    Step step = getArguments().getParcelable("STEP");
-    Log.d("StepDetail", step.toString());
+    //Step step = getArguments().getParcelable("STEP");
+    //Log.d("StepDetail", step.toString());
   }
 }

@@ -29,20 +29,28 @@ public class StepsActivity extends DaggerAppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_steps);
 
-    vm.steps.observe(this, new Observer<Step>() {
-      @Override public void onChanged(@Nullable Step step) {
+    // running in tablet layout?
+    boolean isTablet = getResources().getBoolean(R.bool.recipe_steps_is_tablet);
+
+    if(!isTablet) {
+      // not running in tablet mode
+      // manage fragment transactions!
+      vm.steps.observe(this, new Observer<Step>() {
+        @Override public void onChanged(@Nullable Step step) {
+          getSupportFragmentManager().beginTransaction()
+              .replace(R.id.recipe_steps_container, StepDetailFragment.show(step))
+              .addToBackStack(null)
+              .commit();
+        }
+      });
+
+      if (null == savedInstanceState) {
+        // load steps container
         getSupportFragmentManager().beginTransaction()
-            .replace(R.id.recipe_steps_container, StepDetailFragment.show(step))
-            .addToBackStack(null)
+            .add(R.id.recipe_steps_container, new StepListFragment())
             .commit();
       }
-    });
-
-    if(null == savedInstanceState){
-      // load steps container
-      getSupportFragmentManager().beginTransaction()
-          .add(R.id.recipe_steps_container, new StepListFragment())
-          .commit();
+      // else The fragments will manage the clicks by themselves using the viewmodel
     }
   }
 }
