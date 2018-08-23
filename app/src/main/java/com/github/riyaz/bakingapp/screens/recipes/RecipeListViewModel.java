@@ -24,12 +24,18 @@ public class RecipeListViewModel extends ViewModel implements Callback<List<Reci
   // recipes stream
   public final MutableLiveData<List<Recipe>> recipes = new MutableLiveData<>();
 
-  @Inject RecipeListViewModel(RecipeService service){
+  // idling resource
+  private final RecipeListIdlingResource idlingResource;
+
+  @Inject RecipeListViewModel(RecipeService service, RecipeListIdlingResource idlingResource){
     // start fetching the recipes right away
+    this.idlingResource  = idlingResource;
+    this.idlingResource.setIdle(false);
     service.recipes().enqueue(this);
   }
 
   @Override public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
+    idlingResource.setIdle(true);
     if(response.isSuccessful()){
       List<Recipe> _recipes = response.body();
       if(null != _recipes)

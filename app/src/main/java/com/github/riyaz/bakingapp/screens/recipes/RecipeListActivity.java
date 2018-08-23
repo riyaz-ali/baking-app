@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
+import android.support.test.espresso.IdlingResource;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import butterknife.BindView;
@@ -24,6 +26,7 @@ public class RecipeListActivity extends DaggerAppCompatActivity implements Recip
   private final static String TAG = RecipeListActivity.class.getSimpleName();
 
   @Inject ViewModelProvider.Factory vmFactory;
+  @Inject RecipeListIdlingResource idlingResource;
 
   @BindView(R.id.recipes)
     RecyclerView recipes;
@@ -57,5 +60,9 @@ public class RecipeListActivity extends DaggerAppCompatActivity implements Recip
     Intent intent = new Intent(this, IngredientListActivity.class);
     intent.putExtra(IngredientListActivity.ARG_RECIPE, recipe);
     startActivity(intent);
+  }
+
+  @VisibleForTesting public IdlingResource getIdlingResource(){
+    return idlingResource;
   }
 }
