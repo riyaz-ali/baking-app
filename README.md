@@ -6,10 +6,10 @@ project.
 ## Project Breakdown
 - [x] ~Get initial project up and running~
 
-- [ ] Create a barebones application
-  - Load and display recipes from the network
-  - Display ingredients
-  - Diplay basic (text) steps (no videos) for the recipe
+- [x] Create a barebones application
+  - ~Load and display recipes from the network~
+  - ~Display ingredients~
+  - ~Diplay basic (text) steps (no videos) for the recipe
 
 - [ ] Add `ExoPlayer` to view recipe videos
 
