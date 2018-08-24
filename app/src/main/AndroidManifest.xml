@@ -18,7 +18,7 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name=".screens.ingredients.IngredientListActivity">
+    <activity android:name=".screens.ingredients.IngredientListActivity" android:label="@string/ingredient.what_you_will_need">
     </activity>
     <activity android:name=".screens.steps.StepsActivity">
     </activity>

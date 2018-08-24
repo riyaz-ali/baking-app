@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Button;
+import android.view.View;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.github.riyaz.bakingapp.R;
@@ -40,7 +40,7 @@ public class IngredientListActivity extends DaggerAppCompatActivity {
     ingredients.setLayoutManager(linearLayoutManager);
   }
 
-  @OnClick(R.id.start_recipe) public void onStartRecipe(Button ignored){
+  @OnClick(R.id.start_recipe) public void onStartRecipe(View ignored){
     Intent intent = new Intent(this, StepsActivity.class);
     intent.putExtra(StepsActivity.ARG_RECIPE, recipe);
     startActivity(intent);

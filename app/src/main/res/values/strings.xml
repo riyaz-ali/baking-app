@@ -6,4 +6,6 @@
 
   <!-- Servings count template -->
   <string name="servings.count">Servings: %1$d</string>
+
+  <string name="ingredient.what_you_will_need">What you\'ll need</string>
 </resources>
