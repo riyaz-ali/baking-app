@@ -1,5 +1,6 @@
 package com.github.riyaz.bakingapp.adapter;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -30,8 +31,8 @@ public class IngredientAdapter extends ArrayAdapter<Ingredient, IngredientAdapte
       ButterKnife.bind(this, itemView);
     }
 
-    void bind(@NonNull Ingredient ingredient){
-      title.setText(ingredient.getName());
+    @SuppressLint("DefaultLocale") void bind(@NonNull Ingredient ingredient){
+      title.setText(String.format("- %s (%.1f %s)", ingredient.getName(), ingredient.getQuantity(), ingredient.getMeasure()));
     }
   }
 

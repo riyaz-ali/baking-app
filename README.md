@@ -13,10 +13,10 @@ project.
 
 - [x] ~Add `ExoPlayer` to view recipe videos~
 
-- [ ] Add Espresso UI testing
-  - Adding Espresso tests now will help us detect regressions later when we update the UI
+- [x] ~Add Espresso UI testing~
+  - ~Adding Espresso tests now will help us detect regressions later when we update the UI~
 
-- [ ] Give the UI a modern look-n-feel!
+- [x] ~Give the UI a modern look-n-feel!~
 
 - [ ] Implement a homescreen widget for the app
   - Widget _should_ diplay steps for the currently selected recipe

@@ -2,6 +2,7 @@ package com.github.riyaz.bakingapp.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,6 +46,8 @@ public final class StepsAdapter extends ArrayAdapter<Step, StepsAdapter.ViewHold
     void onClick(@NonNull Step step);
   }
 
+  // currently selected Step
+  @Nullable private Step current;
   // inflater
   private LayoutInflater inflater;
   // click listener
@@ -71,5 +74,4 @@ public final class StepsAdapter extends ArrayAdapter<Step, StepsAdapter.ViewHold
     //noinspection ConstantConditions
     holder.bind(getItem(position));
   }
-
 }

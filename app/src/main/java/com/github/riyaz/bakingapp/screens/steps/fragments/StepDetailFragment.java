@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.github.riyaz.bakingapp.R;
@@ -43,6 +44,7 @@ public class StepDetailFragment extends DaggerFragment {
   @Inject StepsViewModel vm;
 
   @BindView(R.id.recipe_detail_video) PlayerView videoPlayerView;
+  @BindView(R.id.recipe_step) TextView stepDescription;
 
   public static StepDetailFragment show(@NonNull Step step){
     StepDetailFragment fragment = new StepDetailFragment();
@@ -126,8 +128,12 @@ public class StepDetailFragment extends DaggerFragment {
   }
 
   private void display(@NonNull Step step){
+    // set description
+    stepDescription.setText(step.getDescription());
     // return early if no video is present
-    if(TextUtils.isEmpty(step.getVideo())) return;
+    if(TextUtils.isEmpty(step.getVideo())) {
+      getView().findViewById(R.id.recipe_detail_video_container).setVisibility(View.GONE);
+    }
 
     // create the player
     player = ExoPlayerFactory.newSimpleInstance(getContext(), new DefaultTrackSelector());
