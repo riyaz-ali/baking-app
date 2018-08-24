@@ -3,4 +3,7 @@
 
   <!-- Ingredients' Activity -->
   <string name="ingredients.start">Start</string>
+
+  <!-- Servings count template -->
+  <string name="servings.count">Servings: %1$d</string>
 </resources>
