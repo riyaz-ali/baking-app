@@ -30,18 +30,13 @@ public final class Ingredient implements Parcelable {
 
   // enumeration of different measuring units
   public enum Measure {
-    @SerializedName("CUP")
-      CUP,
-    @SerializedName("TBLSP")
-      TABLESPOON,
-    @SerializedName("TSP")
-      TEASPOON,
-    @SerializedName("K")
-      KILOGRAM,
-    @SerializedName("G")
-      GRAM,
-    @SerializedName("OZ")
-      OUNCE
+    @SerializedName("CUP") CUP,
+    @SerializedName("TBLSP") TBSP,
+    @SerializedName("TSP") TSP,
+    @SerializedName("K") KG,
+    @SerializedName("G") G,
+    @SerializedName("OZ") OZ,
+    UNIT
   }
 
 

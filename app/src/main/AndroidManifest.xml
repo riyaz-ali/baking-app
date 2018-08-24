@@ -18,10 +18,23 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name=".screens.ingredients.IngredientListActivity" android:label="@string/ingredient.what_you_will_need">
+    <activity
+        android:name=".screens.ingredients.IngredientListActivity"
+        android:label="@string/ingredient.what_you_will_need">
     </activity>
     <activity android:name=".screens.steps.StepsActivity">
     </activity>
+    <activity android:name=".widget.WidgetConfigurationActivity" android:label="@string/widget.configuration.select_recipe">
+      <intent-filter>
+        <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+      </intent-filter>
+    </activity>
+    <receiver android:name=".widget.WidgetProvider">
+      <intent-filter>
+        <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+      </intent-filter>
+      <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget" />
+    </receiver>
   </application>
 
 </manifest>

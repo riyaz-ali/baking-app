@@ -6,6 +6,7 @@ import com.github.riyaz.bakingapp.screens.recipes.RecipeListActivity;
 import com.github.riyaz.bakingapp.screens.steps.StepActivityModule;
 import com.github.riyaz.bakingapp.screens.steps.StepFragmentModule;
 import com.github.riyaz.bakingapp.screens.steps.StepsActivity;
+import com.github.riyaz.bakingapp.widget.WidgetConfigurationActivity;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
@@ -22,4 +23,6 @@ import dagger.android.ContributesAndroidInjector;
     abstract IngredientListActivity bindIngredientListActivity();
   // [target]: StepsActivity
   @ContributesAndroidInjector(modules = { StepActivityModule.class, StepFragmentModule.class }) abstract StepsActivity bindStepsActivity();
+  // [target]: WidgetConfigurationActivity
+  @ContributesAndroidInjector abstract WidgetConfigurationActivity bindWidgetConfigurationActivity();
 }
