@@ -138,7 +138,7 @@ public class StepDetailFragment extends DaggerFragment {
     // create the player
     player = ExoPlayerFactory.newSimpleInstance(getContext(), new DefaultTrackSelector());
 
-    player.setPlayWhenReady(true);
+    player.setPlayWhenReady(playWhenReady);
     videoPlayerView.requestFocus();
     videoPlayerView.setPlayer(player);
 
