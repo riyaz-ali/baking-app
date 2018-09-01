@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +26,7 @@ import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.squareup.picasso.Picasso;
 import dagger.android.support.DaggerFragment;
 import javax.inject.Inject;
 
@@ -133,6 +135,19 @@ public class StepDetailFragment extends DaggerFragment {
     // return early if no video is present
     if(TextUtils.isEmpty(step.getVideo())) {
       getView().findViewById(R.id.recipe_detail_video_container).setVisibility(View.GONE);
+
+      if(TextUtils.isEmpty(step.getThumbnail())) {
+        // no image! hide the container
+        getView().findViewById(R.id.recipe_detail_media_container).setVisibility(View.GONE);
+      }
+    }
+
+    // load the image
+    if(!TextUtils.isEmpty(step.getThumbnail())) {
+      Picasso.with(getContext())
+          .load(step.getThumbnail())
+          .error(R.drawable.broken)
+          .into((ImageView) getView().findViewById(R.id.recipe_detail_image));
     }
 
     // create the player
