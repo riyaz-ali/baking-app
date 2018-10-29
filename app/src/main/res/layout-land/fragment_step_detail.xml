@@ -28,15 +28,31 @@
   </FrameLayout>
 
   <FrameLayout
-      android:id="@+id/recipe.detail.video.container"
+      android:id="@+id/recipe.detail.media.container"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_margin="4dp">
+      android:layout_margin="4dp"
+      >
 
-    <com.google.android.exoplayer2.ui.SimpleExoPlayerView
-        android:id="@+id/recipe.detail.video"
+    <ImageView
+        android:id="@+id/recipe.detail.image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:resize_mode="fill"/>
+        />
+
+    <FrameLayout
+        android:id="@+id/recipe.detail.video.container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp"
+        >
+
+      <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+          android:id="@+id/recipe.detail.video"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          app:resize_mode="fill"
+          />
+    </FrameLayout>
   </FrameLayout>
 </FrameLayout>
